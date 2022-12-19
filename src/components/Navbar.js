@@ -10,18 +10,12 @@ function Navbar() {
       </div>
 
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <a class="me-3 py-2 text-dark text-decoration-none" href="#">
-          Features
-        </a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="#">
-          Enterprise
-        </a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="#">
-          Support
-        </a>
-        <a class="py-2 text-dark text-decoration-none" href="#">
-          Pricing
-        </a>
+        <Link class="me-3 py-2 text-dark text-decoration-none" to="/login">
+          Login
+        </Link>
+        <Link class=" py-2 text-dark text-decoration-none" to="/register">
+          Register
+        </Link>
       </nav>
     </div>
   );
