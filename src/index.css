@@ -20,14 +20,14 @@ body {
 }
 
 .img-wrapper span {
-  color: #6a7fdb9c;
+  color: #6a7fdbc6;
   font-size: 28px;
   font-weight: 600;
   letter-spacing: 5px;
 }
 
 .img-wrapper img {
-  background-color: #6a7fdb9c;
+  background-color: #6a7fdbc6;
   border-radius: 15%;
   width: 35px;
   height: 35px;
@@ -40,4 +40,9 @@ body {
   width: 80px;
   height: 80px;
   object-fit: cover;
+  transition: opacity linear 0.4s;
+}
+
+.register-img:hover {
+  opacity: 0.5;
 }

@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 function Input({ label, state, setState, type = "text" }) {
   return (
     <div className="form-floating">
