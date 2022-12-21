@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 import { Input } from "./ui";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  loginUserStart,
-  loginUserSuccess,
-  loginUserFailure,
-} from "../slice/Auth";
+import { signUserStart, signUserSuccess, signUserFailure } from "../slice/Auth";
 import AuthService from "../service/AuthService";
 
 function Login() {
@@ -19,15 +15,15 @@ function Login() {
 
   const loginHandler = async (e) => {
     e.preventDefault();
-    dispatch(loginUserStart());
+    dispatch(signUserStart());
     const user = { email, password };
 
+    const response = await AuthService.userLogin(user);
     try {
-      const response = await AuthService.userLogin(user);
       console.log(response);
-      dispatch(loginUserSuccess());
+      dispatch(signUserSuccess(response.user));
     } catch (error) {
-      dispatch(loginUserFailure());
+      dispatch(signUserFailure(error.response.data.errors));
     }
   };
 
