@@ -9,7 +9,7 @@ function Input({ label, state, setState, type = "text" }) {
         value={state}
         onChange={(e) => setState(e.target.value)}
       />
-      <label for="floatingInput">{label}</label>
+      <label htmlFor="floatingInput">{label}</label>
     </div>
   );
 }
