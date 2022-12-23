@@ -46,3 +46,18 @@ body {
 .register-img:hover {
   opacity: 0.5;
 }
+
+.addition-btn__logout {
+  background-color: #647be5;
+  color: #fff;
+  transition: background-color linear 0.4s;
+}
+
+.addition-btn__logout:hover {
+  background-color: #fff;
+  color: #647be5;
+}
+
+.addition-btn__logout:active {
+  transform: translateY(1px);
+}
