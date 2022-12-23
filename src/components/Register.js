@@ -1,16 +1,17 @@
 import { Input } from "./ui";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signUserStart, signUserSuccess, signUserFailure } from "../slice/Auth";
 import AuthService from "../service/AuthService";
 import { ValidationError } from "./index.jsx";
+import { useNavigate } from "react-router-dom";
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.auth);
+  const { isLoading, loggedIn } = useSelector((state) => state.auth);
 
   const registerHandler = async (e) => {
     e.preventDefault();
@@ -26,6 +27,13 @@ function Register() {
       dispatch(signUserFailure(error.response.data.errors));
     }
   };
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate("/");
+    }
+  }, []);
+
   return (
     <div className="text-center mt-5">
       <main className="form-signin w-25 container">

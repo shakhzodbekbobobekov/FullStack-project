@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "./ui";
 import { useState } from "react";
@@ -12,8 +12,9 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.auth);
+  const { isLoading, loggedIn } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  console.log(loggedIn);
 
   const loginHandler = async (e) => {
     e.preventDefault();
@@ -29,6 +30,12 @@ function Login() {
       dispatch(signUserFailure(error.response.data.errors));
     }
   };
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div className="text-center mt-5">
