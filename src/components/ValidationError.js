@@ -11,8 +11,6 @@ function ValidationError() {
     });
   }, [error]);
 
-  console.log(errorMessage);
-
   return (
     error !== null &&
     errorMessage().map((error) => {
@@ -23,8 +21,6 @@ function ValidationError() {
           key={error}
         >
           {error}
-          {console.log(error)}
-          <p>lorem</p>
         </div>
       );
     })
