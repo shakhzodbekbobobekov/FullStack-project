@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 function Navbar() {
   const { loggedIn, user } = useSelector((state) => state.auth);
-  console.log(loggedIn);
-
+  console.log({ user });
   return (
     <div className="container d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom pt-3 ">
       <div className="img-wrapper">

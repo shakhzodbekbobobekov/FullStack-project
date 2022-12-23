@@ -32,7 +32,7 @@ function Register() {
     if (loggedIn) {
       navigate("/");
     }
-  }, []);
+  });
 
   return (
     <div className="text-center mt-5">

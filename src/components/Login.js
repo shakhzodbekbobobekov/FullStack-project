@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "./ui";
 import { useState } from "react";
@@ -35,7 +35,7 @@ function Login() {
     if (loggedIn) {
       navigate("/");
     }
-  }, []);
+  });
 
   return (
     <div className="text-center mt-5">
