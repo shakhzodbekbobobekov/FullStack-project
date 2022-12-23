@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signUserStart, signUserSuccess, signUserFailure } from "../slice/Auth";
 import AuthService from "../service/AuthService";
+import { ValidationError } from "./index.jsx";
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -37,6 +38,7 @@ function Register() {
             height="57"
           />
           <h1 className="h3 mb-3 fw-normal">Please register</h1>
+          <ValidationError />
           <Input label={"Username"} state={name} setState={setName} />
           <Input
             label={"Email address"}

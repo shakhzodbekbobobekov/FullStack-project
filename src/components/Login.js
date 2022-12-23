@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { signUserStart, signUserSuccess, signUserFailure } from "../slice/Auth";
 import AuthService from "../service/AuthService";
+import { ValidationError } from "./index.jsx";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -39,6 +40,7 @@ function Login() {
             />
           </Link>
           <h1 className="h3 mb-3 fw-normal">Please login</h1>
+          <ValidationError />
           <Input
             label={"Email address"}
             type={"email"}
