@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Loader } from "./ui";
 function Main() {
-  const { articles } = useSelector((state) => state.article);
-
+  const { articles, isLoading } = useSelector((state) => state.article);
+  console.log(isLoading);
   return (
     <div className="container">
+      {isLoading && <Loader />}
       <div className="album py-5 ">
         <div className="container">
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -28,31 +30,31 @@ function Main() {
                   <div className="card-body">
                     <p className="card-text fw-bold">{item.title}</p>
                     <p className="card-text">{item.description}</p>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div className="btn-group">
-                        <button
-                          type="button"
-                          className="btn btn-sm btn-outline-success"
-                        >
-                          View
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-sm btn-outline-secondary"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-sm btn-outline-danger"
-                        >
-                          Delete
-                        </button>
-                      </div>
-                      <small className="text-muted fw-bold text-capitalize">
-                        {item.author.username}
-                      </small>
+                  </div>
+                  <div className=" card-footer d-flex justify-content-between align-items-center">
+                    <div className="btn-group">
+                      <button
+                        type="button"
+                        className="btn btn-sm btn-outline-success"
+                      >
+                        View
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-sm btn-outline-secondary"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-sm btn-outline-danger"
+                      >
+                        Delete
+                      </button>
                     </div>
+                    <small className="text-muted fw-bold text-capitalize">
+                      {item.author.username}
+                    </small>
                   </div>
                 </div>
               </div>

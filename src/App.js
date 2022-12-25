@@ -20,6 +20,7 @@ function App() {
   };
 
   const getArticles = async () => {
+    dispatch(getArticlesStart());
     try {
       const response = await ArticlesService.getArticles();
       dispatch(getArticleSuccess(response.articles));

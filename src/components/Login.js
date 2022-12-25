@@ -14,7 +14,6 @@ function Login() {
   const dispatch = useDispatch();
   const { isLoading, loggedIn } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  console.log(loggedIn);
 
   const loginHandler = async (e) => {
     e.preventDefault();
