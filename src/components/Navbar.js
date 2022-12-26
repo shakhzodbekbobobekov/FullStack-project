@@ -30,6 +30,12 @@ function Navbar() {
             <p className=" m-0 me-3 py-2 text-dark text-decoration-none">
               {user.username}
             </p>
+            <Link
+              className="me-3 py-2 text-dark text-decoration-none"
+              to="/createArticle"
+            >
+              CreateArticle
+            </Link>
             <button
               className="btn btn-outline-primary addition-btn__logout"
               onClick={logoHandler}
