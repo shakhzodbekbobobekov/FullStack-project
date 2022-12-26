@@ -8,7 +8,9 @@ import {
   Navbar,
   ArticleDetail,
   CreateArticle,
+  EditArticle,
 } from "./components";
+import PageNotFound from "./components/PageNotFound";
 import { getItem } from "./helpers/storage";
 import AuthService from "./service/AuthService";
 import { signUserSuccess } from "./slice/Auth";
@@ -24,25 +26,6 @@ function App() {
       console.log(error);
     }
   };
-
-  // const getArticles = async () => {
-  //   dispatch(getArticlesStart());
-  //   try {
-  //     const response = await ArticlesService.getArticles();
-  //     dispatch(getArticleSuccess(response.articles));
-  //     return response;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const token = getItem("token");
-  //   if (token) {
-  //     getUser();
-  //   }
-  //   getArticles();
-  // }, []);
 
   useEffect(() => {
     const token = getItem("token");
@@ -61,6 +44,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/article/:slug" element={<ArticleDetail />} />
           <Route path="/createArticle" element={<CreateArticle />} />
+          <Route path="/editArticle/:slug" element={<EditArticle />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </div>
