@@ -12,8 +12,7 @@ import {
 import { getItem } from "./helpers/storage";
 import AuthService from "./service/AuthService";
 import { signUserSuccess } from "./slice/Auth";
-import ArticlesService from "./service/articles";
-import { getArticlesStart, getArticleSuccess } from "./slice/article";
+
 function App() {
   const dispatch = useDispatch();
 
@@ -26,23 +25,30 @@ function App() {
     }
   };
 
-  const getArticles = async () => {
-    dispatch(getArticlesStart());
-    try {
-      const response = await ArticlesService.getArticles();
-      dispatch(getArticleSuccess(response.articles));
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getArticles = async () => {
+  //   dispatch(getArticlesStart());
+  //   try {
+  //     const response = await ArticlesService.getArticles();
+  //     dispatch(getArticleSuccess(response.articles));
+  //     return response;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const token = getItem("token");
+  //   if (token) {
+  //     getUser();
+  //   }
+  //   getArticles();
+  // }, []);
 
   useEffect(() => {
     const token = getItem("token");
     if (token) {
       getUser();
     }
-    getArticles();
   }, []);
 
   return (
